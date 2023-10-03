@@ -3,13 +3,43 @@ package Lesson3;
 import java.util.Arrays;
 
 public class HomeWorkApp3 {
+    //6. * Задать одномерный массив и найти в нем минимальный и максимальный элементы ;
+    public static void findTheMinMaxArray() {
+        int[] minMaxArr = new int[]{-121, 20, 34324, -12, 685, -432, -65, 93};
+        int max = minMaxArr[0];
+        int min = minMaxArr[0];
+        for (int i = 0; i < minMaxArr.length; i++) {
+            if (minMaxArr[i] > max) {
+                max = minMaxArr[i];
+            }
+            if (minMaxArr[i] < min){
+                min = minMaxArr[i];
+            }
+        }
+        System.out.println(max);
+        System.out.println(min);
+
+    }
+
+    //5. Написать метод, принимающий на вход два аргумента: len и initialValue, и возвращающий
+    //одномерный массив типа int длиной len, каждая ячейка которого равна initialValue;
+
+    public static int[] returningAOneDimensionalArray(int len, int initiaValue) {
+        int[] fullArray = new int[len];
+        for (int i = 0; i < len; i++) {
+            fullArray[i] = initiaValue;
+        }
+        return fullArray;
+    }
+
+
     //4. Создать квадратный двумерный целочисленный массив (количество строк и столбцов
     //одинаковое), и с помощью цикла(-ов) заполнить его диагональные элементы единицами
     //(можно только одну из диагоналей, если обе сложно). Определить элементы одной из
     //диагоналей можно по следующему принципу: индексы таких элементов равны, то есть [0][0],
     //[1][1], [2][2], …, [n][n];
 
-    public static void squareTwo_DmensionalIntegerArray() {
+    public static void fillDiagonalsTheArray() {
         int n = 3;
         int[][] arr = new int[n][n];
         for (int i = 0; i < arr.length; i++) {
@@ -17,7 +47,7 @@ public class HomeWorkApp3 {
         }
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                System.out.print(arr[i][j]+" ");
+                System.out.print(arr[i][j] + " ");
             }
             System.out.println();
         }
@@ -104,6 +134,11 @@ public class HomeWorkApp3 {
         System.out.println();
         multiplyByTwo();
         System.out.println();
-        squareTwo_DmensionalIntegerArray();
+        fillDiagonalsTheArray();
+        System.out.println();
+        System.out.println(Arrays.toString(returningAOneDimensionalArray(10, 5)));
+        System.out.println();
+        findTheMinMaxArray();
+
     }
 }
