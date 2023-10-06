@@ -3,6 +3,48 @@ package Lesson3;
 import java.util.Arrays;
 
 public class HomeWorkApp3 {
+    //8. *** Написать метод, которому на вход подается одномерный массив и число n (может быть
+    //положительным, или отрицательным), при этом метод должен сместить все элементы массива
+    //на n позиций. Элементы смещаются циклично. Для усложнения задачи нельзя пользоваться
+    //вспомогательными массивами. Примеры: [ 1, 2, 3 ] при n = 1 (на один вправо) -> [ 3, 1, 2 ]; [ 3, 5,
+    //6, 1] при n = -2 (на два влево) -> [ 6, 1, 3, 5 ]. При каком n в какую сторону сдвиг можете
+    //выбирать сами.
+    public static void methodToShiftAllElementsOfTheArrayByNPositions(int[] array, int n) {
+        int[] sum = new int[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            int newIndex = (i + n) % array.length;
+            sum[newIndex] = array[i];
+        }
+        System.arraycopy(sum , 0 ,array,0,array.length);
+    }
+
+
+    //7** Написать метод, в который передается не пустой одномерный целочисленный массив,
+    //метод должен вернуть true, если в массиве есть место, в котором сумма левой и правой части
+    //массива равны.
+    //Примеры:
+    //checkBalance([2, 2, 2, 1, 2, 2, ||| 10, 1]) → true, т.е. 2 + 2 + 2 + 1 + 2 + 2 = 10 + 1
+    //checkBalance([1, 1, 1, ||| 2, 1]) → true, т.е. 1 + 1 + 1 = 2 + 1
+
+    public static boolean thereIsAPlaceInTheArray(int[] array) {
+        int left = 0;
+        int right = 0;
+        for (int i = 0; i < array.length; i++) {
+            array[i] += left;
+
+            for (int j = 0; j < array.length; j++) {
+                array[j] += right;
+            }
+        }
+
+        if (left == right) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     //6. * Задать одномерный массив и найти в нем минимальный и максимальный элементы ;
     public static void findTheMinMaxArray() {
         int[] minMaxArr = new int[]{-121, 20, 34324, -12, 685, -432, -65, 93};
@@ -12,7 +54,7 @@ public class HomeWorkApp3 {
             if (minMaxArr[i] > max) {
                 max = minMaxArr[i];
             }
-            if (minMaxArr[i] < min){
+            if (minMaxArr[i] < min) {
                 min = minMaxArr[i];
             }
         }
@@ -139,6 +181,11 @@ public class HomeWorkApp3 {
         System.out.println(Arrays.toString(returningAOneDimensionalArray(10, 5)));
         System.out.println();
         findTheMinMaxArray();
+        System.out.println();
+        int[] array = new int[]{1, 1, 1, 1, 2, 2, 2, 2, 3,};
+
+        System.out.println();
+        methodToShiftAllElementsOfTheArrayByNPositions(5 , 1);
 
     }
 }
