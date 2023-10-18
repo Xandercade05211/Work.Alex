@@ -51,7 +51,7 @@ public class TicTacToeInProceduralStyle {
     }
 
     static void alTurn() {
-        Random random = new Random();
+        Random random = new Random(size);
 
         int x;
         int y;
@@ -61,6 +61,7 @@ public class TicTacToeInProceduralStyle {
             System.out.println("Координаты компьютера : ");
             x = random.nextInt();
             y = random.nextInt();
+
 
         } while (!isCellValid(x, y));
 
