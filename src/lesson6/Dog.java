@@ -6,16 +6,16 @@ public class Dog extends Animal {
 
     @Override
     public final boolean run(int length) {
-        if (length==lengthRun){
-            System.out.println("Собака пробежала 500 метров");
+        if (length <= lengthRun) {
+            System.out.println("Собака пробежала " + length + " метров ");
         }
         return false;
     }
 
     @Override
     public final boolean sail(int length) {
-        if (length==lengthSail){
-            System.out.println("Собака проплыла 10 метров");
+        if (length <= lengthSail) {
+            System.out.println("Собака проплыла " + length + " метров");
         }
         return false;
     }

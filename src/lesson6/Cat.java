@@ -6,17 +6,15 @@ public class Cat extends Animal {
 
     @Override
     public final boolean run(int length) {
-        if (length == lengthRun) {
-            System.out.println("Кот пробежал 200 метров ");
+        if (length <= lengthRun) {
+            System.out.println("Кот пробежал" + length + " метров ");
         }
-            return false;
+        return false;
     }
 
     @Override
     public final boolean sail(int length) {
-        if (length <= 0) {
-            System.out.println(lengthSail);
-        }
+        System.out.println(lengthSail);
         return false;
     }
 }
